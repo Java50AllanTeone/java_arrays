@@ -74,6 +74,43 @@ public class ArraysTest {
 		assertArrayEquals(expected3, ArraysInt.insertNumber(src, index, number));
 	}
 	
+	@Test
+	void removeNumberTest() {
+		int[] src = {1, 2, 3, 4, 5, 6, 7};
+		int index = 0;
+		int[] expected1 = {2, 3, 4, 5, 6, 7};
+		assertArrayEquals(expected1, ArraysInt.removeNumber(src, index));
+		
+		index = 6;
+		int[] expected2 = {1, 2, 3, 4, 5, 6};
+		assertArrayEquals(expected2, ArraysInt.removeNumber(src, index));
+		
+		index = 4;
+		int[] expected3 = {1, 2, 3, 4, 6, 7};
+		assertArrayEquals(expected3, ArraysInt.removeNumber(src, index));
+	}
+	
+	@Test
+	void insertNumberSortedTest() {
+		int[] src = {1, 2, 3, 5, 6, 7};
+		int number = 0;
+		int[] expected1 = {0, 1, 2, 3, 5, 6, 7};
+		assertArrayEquals(expected1, ArraysInt.insertNumberSorted(src, number));
+		
+		number = 8;
+		int[] expected2 = {1, 2, 3, 5, 6, 7, 8};
+		assertArrayEquals(expected2, ArraysInt.insertNumberSorted(src, number));
+		
+		number = 4;
+		int[] expected3 = {1, 2, 3, 4, 5, 6, 7};
+		assertArrayEquals(expected3, ArraysInt.insertNumberSorted(src, number));
+		
+		number = 5;
+		int[] expected4 = {1, 2, 3, 5, 5, 6, 7};
+		assertArrayEquals(expected4, ArraysInt.insertNumberSorted(src, number));
+		
+	}
+	
 	
 	
 }
