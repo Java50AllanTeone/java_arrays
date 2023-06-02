@@ -80,7 +80,31 @@ public class ArraysInt {
 	public static int getRandomInt(int min, int max) {
 		Random gen = new Random();
 		
-		return gen.nextInt(min, max + 1);
+		return gen.nextInt(min, max);
 	}
+
 	
+	//hw-3
+	
+	public static int binarySearchFirst(int[] array, int number) {
+		int left = 0;
+		int right = array.length - 1;
+		int middle = right / 2;
+		
+		while(left < right) {
+			if (number < array[middle]) {
+				right = middle - 1;
+			} else if (number > array[middle]) {
+				left = middle + 1;
+			} else {
+				right = middle;
+			}
+			middle = (left + right) / 2;
+		}
+		
+		if (array[middle] != number)
+			middle = array[middle] < number ? -(middle + 2) : -(middle + 1);
+		
+		return middle;
+	}
 }
