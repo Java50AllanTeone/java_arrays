@@ -14,12 +14,13 @@ public class Subsequence {
 			if (curNum == arr[i])
 				curLength++;
 			else {
+				if (maxLength < curLength)
+					maxLength = curLength;
+				
 				curNum = arr[i];
 				curLength = 1;
 			}
-			if (maxLength < curLength)
-				maxLength = curLength;
 		}
-		return maxLength;
+		return maxLength < curLength ? curLength : maxLength;
 	}
 }
