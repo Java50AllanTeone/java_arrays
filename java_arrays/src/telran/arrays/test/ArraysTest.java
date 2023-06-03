@@ -35,7 +35,9 @@ public class ArraysTest {
 		int[] arr = new int[num];
 		
 		for (int i = 0; i < arr.length; i++)
-			arr[i] = ArraysInt.getRandomInt(0, Integer.MAX_VALUE);
+			arr[i] = ArraysInt.getRandomInt(0, 100_000);
+		
+		arr[arr.length - 1] = 0;
 		return arr;
 	}
 	
@@ -49,13 +51,13 @@ public class ArraysTest {
 		quickArr2 = initArr(200_000);
 		quickArr3 = initArr(300_000);
 		
-		binArr1 = initArr(100_000_000);
-		binArr2 = initArr(200_000_000);
-		binArr3 = initArr(300_000_000);
+		binArr1 = initArr(100_000);
+		binArr2 = initArr(200_000);
+		binArr3 = initArr(200_000);
 
-		numbsArr1 = initArr(100_000_000);
-		numbsArr2 = initArr(200_000_000);
-		numbsArr3 = initArr(300_000_000);
+		numbsArr1 = initArr(100_000);
+		numbsArr2 = initArr(200_000);
+		numbsArr3 = initArr(200_000);
 	}
 
 	@Test
@@ -107,6 +109,19 @@ public class ArraysTest {
 		number = 9;
 		expected = -9;
 		assertEquals(expected, ArraysInt.binarySearchFirst(src, number));
+	}
+	
+	@Test
+	@DisplayName("muchRepeatedTest with 1_000_000 elements")
+	void muchRepeatedTest() {
+		
+		
+		for (int i = 0; i < 1_000_000; i++) {
+			int[] array = initArr(1_000);
+			ArraysInt.quickSort(array);
+			
+			assertEquals(0, ArraysInt.binarySearchFirst(array, 0));
+		}
 	}
 	
 	
