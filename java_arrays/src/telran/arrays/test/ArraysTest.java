@@ -53,11 +53,11 @@ public class ArraysTest {
 		
 		binArr1 = initArr(100_000);
 		binArr2 = initArr(200_000);
-		binArr3 = initArr(200_000);
+		binArr3 = initArr(300_000);
 
 		numbsArr1 = initArr(100_000);
 		numbsArr2 = initArr(200_000);
-		numbsArr3 = initArr(200_000);
+		numbsArr3 = initArr(300_000);
 	}
 
 	@Test
@@ -115,11 +115,9 @@ public class ArraysTest {
 	@DisplayName("muchRepeatedTest with 1_000_000 elements")
 	void muchRepeatedTest() {
 		
-		
 		for (int i = 0; i < 1_000_000; i++) {
 			int[] array = initArr(1_000);
 			ArraysInt.quickSort(array);
-			
 			assertEquals(0, ArraysInt.binarySearchFirst(array, 0));
 		}
 	}
