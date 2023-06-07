@@ -47,7 +47,19 @@ public class InterviewTasks {
 	}
 	
 	public static short getMaxWithNegativePresentation(short[] arr) {
-		return 0;
+		short[] helper = new short[Short.MAX_VALUE];
+		short res = -1;
+		
+		for (int i = 0; i < arr.length; i++) {
+			short cur = arr[i];
+			
+			if ((cur < 0 && helper[Math.abs(cur)] == 2) || (cur > 0 && helper[cur] == 1)) {
+				if (res < Math.abs(cur)) 
+					res = (short) Math.abs(cur);
+			}
+			helper[Math.abs(cur)] = cur < 0 ? (short)1 : 2;
+		}
+		return res;
 	}
 
 }
