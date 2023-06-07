@@ -1,5 +1,7 @@
 package telran.arrays;
 
+import java.util.Arrays;
+
 public class InterviewTasks {
 	
 	//O(n^2)
@@ -43,7 +45,20 @@ public class InterviewTasks {
 	
 	
 	public static void sort(short[] array) {
+		short[] helper = new short[Short.MAX_VALUE];
+		int indCur = 0;
+		int num = 0;
 		
+		for (int i = 0; i < array.length; i++) 
+			helper[array[i]]++;
+		
+		while (indCur < array.length) {
+			if (helper[num] != 0) {
+				Arrays.fill(array, indCur, indCur + helper[num], (short)num);
+				indCur += helper[num];
+			}
+			num++;
+		}
 	}
 	
 	public static short getMaxWithNegativePresentation(short[] arr) {
