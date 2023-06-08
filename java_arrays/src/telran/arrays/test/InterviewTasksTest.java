@@ -21,7 +21,7 @@ class InterviewTasksTest {
 	static void initArr() {
 		array = new short[]{1, 1, 1, -1, 20, 100, 200, 100, -100, -100, -20, -40, 80};
 		array1 = new short[]{-40, 1, -40, -6, 2, 3, 40};
-		array2 = new short[]{40, 1, 2, 3, 40, -30};
+		array2 = new short[]{40, 1, 2, 3, 40, 0, 0, -30};
 		array3 = new short[]{40, 1, 2, 3, 40, -40, -30};
 		
 		arrSort = new short[1_000_000];
