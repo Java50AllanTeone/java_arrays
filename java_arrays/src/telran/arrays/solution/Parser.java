@@ -23,17 +23,16 @@ public class Parser {
 				if (indexArray == 0) {
 					isValid = false;
 					break;
-				}
-				indexArray--;
-				
-				if (!isValidBracket(arr[indexArray], cur)) {
-					isValid = false;
+				} else {
+					indexArray--;
+					isValid = isValidBracket(arr[indexArray], cur);
 				}
 			}
 			indexText++;
 		}
 		return isValid && indexArray == 0;
 	}
+	
 	
 	public static boolean isValidBracket(char open, char close) {
 		return (open == opRound && close == clRound) || 
