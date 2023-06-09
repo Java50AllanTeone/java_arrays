@@ -54,10 +54,10 @@ class AnagramTest {
 		assertFalse(Anagram.isAnagram(src, target));
 		
 		target = "ab1cde";
-		src = "abcde";
+		src = "abcde1";
 		assertFalse(Anagram.isAnagram(src, target));
 		
-		target = "abcde";
+		target = "1abcde";
 		src = "ab1cde";
 		assertFalse(Anagram.isAnagram(src, target));
 		
@@ -66,10 +66,10 @@ class AnagramTest {
 		assertFalse(Anagram.isAnagram(src, target));
 		
 		target = "ab~cde";
-		src = "abcde";
+		src = "abcde~";
 		assertFalse(Anagram.isAnagram(src, target));
 		
-		target = "abcde";
+		target = "~abcde";
 		src = "ab~cde";
 		assertFalse(Anagram.isAnagram(src, target));
 		

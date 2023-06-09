@@ -19,8 +19,10 @@ public class Anagram {
 				helper[sourceCh]++;
 				helper[targetCh]--;
 			} else {
+				System.err.println("Not a valid symbol");
 				res = false;
 			}
+			
 			index++;
 		}
 		
@@ -33,6 +35,7 @@ public class Anagram {
 	}
 	
 	public static boolean isValidSymb(char ch) {
+		
 		return ch >= 97 && ch <= 122;
 	}
 	
