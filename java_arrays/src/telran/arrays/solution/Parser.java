@@ -1,12 +1,12 @@
 package telran.arrays.solution;
 
 public class Parser {
-	final static char opRound = '(';
-	final static char clRound = ')';
-	final static char opBrace = '{';
-	final static char clBrace = '}';
-	final static char opBox = '[';
-	final static char clBox = ']';
+	static char opRound = '(';
+	static char clRound = ')';
+	static char opBrace = '{';
+	static char clBrace = '}';
+	static char opBox = '[';
+	static char clBox = ']';
 	
 	public static boolean hasValidBrackets(String text) {
 		char[] arr = new char[text.length()];	
@@ -15,29 +15,33 @@ public class Parser {
 		boolean isValid = true;
 		
 		while (indexText < text.length() && isValid) {
-			char cur = text.charAt(indexText);
+			char cur = text.charAt(indexText++);
 			
-			if (cur == opRound || cur == opBrace || cur == opBox) {
+			if (isOpeningBracket(cur)) {
 				arr[indexArray++] = cur;
-			} else if (cur == clRound || cur == clBrace || cur == clBox) {
+			} else if (isClosingBracket(cur)) {
 				if (indexArray == 0) {
 					isValid = false;
-					break;
 				} else {
 					indexArray--;
-					isValid = isValidBracket(arr[indexArray], cur);
+					isValid = isValidPair(arr[indexArray], cur);
 				}
 			}
-			indexText++;
 		}
 		return isValid && indexArray == 0;
 	}
 	
 	
-	public static boolean isValidBracket(char open, char close) {
+	public static boolean isValidPair(char open, char close) {
 		return (open == opRound && close == clRound) || 
 				(open == opBrace && close == clBrace) ||
 				(open == opBox && close == clBox);
+	}
+	public static boolean isOpeningBracket(char bracket) {
+		return bracket == opRound || bracket == opBox || bracket == opBrace;
+	}
+	public static boolean isClosingBracket(char bracket) {
+		return bracket == clRound || bracket == clBox || bracket == clBrace;
 	}
 	
 	
