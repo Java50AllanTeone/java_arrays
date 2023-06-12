@@ -1,10 +1,12 @@
 package telran.arrays.solution;
 
 public class Anagram {
-	static int INTERVAL = 'a' - 'A';
+	final static char LOWER_A = 'a';
+	final static char LOWER_Z = 'z';
+	final static int INTERVAL = LOWER_A - 'A';
 	
 	public static boolean isAnagram(String sourceWord, String targetWord) {
-		byte[] helper = new byte['z' + 1];
+		byte[] helper = new byte[LOWER_Z + 1];
 		boolean res = true;
 		int index = 0;
 		
@@ -36,11 +38,11 @@ public class Anagram {
 	
 	public static boolean isValidSymb(char ch) {
 		
-		return ch >= 97 && ch <= 122;
+		return ch >= LOWER_A && ch <= LOWER_Z;
 	}
 	
 	public static char toLowerCh(char ch) {
-		return (char) (ch < 97 ? ch + INTERVAL : ch);
+		return (char) (ch < LOWER_A ? ch + INTERVAL : ch);
 	}
 
 }
