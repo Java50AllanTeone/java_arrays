@@ -4,20 +4,19 @@ public class Parser {
 
 	public static boolean hasValidBrackets(String text) {
 		char[] arr = new char[text.length()];	
-		int indexText = 0;
-		int indexArray = 0;
+		int indArr = 0;
 		boolean isValid = true;
 		
-		while (indexText < text.length() && isValid) {
-			char cur = text.charAt(indexText++);
+		for (int indText = 0; indText < text.length() && isValid; indText++) {
+			char cur = text.charAt(indText);
 			
 			if (cur == '(' || cur == '[' || cur == '{') {
-				arr[indexArray++] = cur;
+				arr[indArr++] = cur;
 			} else if (cur == ')' || cur == ']' || cur == '}') {
-				isValid = indexArray != 0 ? isValidPair(arr[--indexArray], cur) : false;
+				isValid = indArr != 0 ? isValidPair(arr[--indArr], cur) : false;
 			}
 		}
-		return isValid && indexArray == 0;
+		return isValid && indArr == 0;
 	}
 	
 	public static boolean isValidPair(char open, char close) {
