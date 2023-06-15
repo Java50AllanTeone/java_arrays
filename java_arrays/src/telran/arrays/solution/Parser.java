@@ -1,13 +1,7 @@
 package telran.arrays.solution;
 
 public class Parser {
-	static char opRound = '(';
-	static char clRound = ')';
-	static char opBrace = '{';
-	static char clBrace = '}';
-	static char opBox = '[';
-	static char clBox = ']';
-	
+
 	public static boolean hasValidBrackets(String text) {
 		char[] arr = new char[text.length()];	
 		int indexText = 0;
@@ -31,17 +25,16 @@ public class Parser {
 		return isValid && indexArray == 0;
 	}
 	
-	
 	public static boolean isValidPair(char open, char close) {
-		return (open == opRound && close == clRound) || 
-				(open == opBrace && close == clBrace) ||
-				(open == opBox && close == clBox);
+		return (open == '(' && close == ')') || 
+				(open == '{' && close == '}') ||
+				(open == '[' && close == ']');
 	}
 	public static boolean isOpeningBracket(char bracket) {
-		return bracket == opRound || bracket == opBox || bracket == opBrace;
+		return bracket == '(' || bracket == '[' || bracket == '{';
 	}
 	public static boolean isClosingBracket(char bracket) {
-		return bracket == clRound || bracket == clBox || bracket == clBrace;
+		return bracket == ')' || bracket == ']' || bracket == '}';
 	}
 	
 	
