@@ -11,9 +11,9 @@ public class Parser {
 		while (indexText < text.length() && isValid) {
 			char cur = text.charAt(indexText++);
 			
-			if (isOpeningBracket(cur)) {
+			if (cur == '(' || cur == '[' || cur == '{') {
 				arr[indexArray++] = cur;
-			} else if (isClosingBracket(cur)) {
+			} else if (cur == ')' || cur == ']' || cur == '}') {
 				isValid = indexArray != 0 ? isValidPair(arr[--indexArray], cur) : false;
 			}
 		}
@@ -25,14 +25,4 @@ public class Parser {
 				(open == '{' && close == '}') ||
 				(open == '[' && close == ']');
 	}
-	public static boolean isOpeningBracket(char bracket) {
-		return bracket == '(' || bracket == '[' || bracket == '{';
-	}
-	public static boolean isClosingBracket(char bracket) {
-		return bracket == ')' || bracket == ']' || bracket == '}';
-	}
-	
-	
-	
-
 }
