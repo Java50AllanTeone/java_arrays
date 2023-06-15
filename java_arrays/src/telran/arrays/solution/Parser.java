@@ -14,12 +14,7 @@ public class Parser {
 			if (isOpeningBracket(cur)) {
 				arr[indexArray++] = cur;
 			} else if (isClosingBracket(cur)) {
-				if (indexArray == 0) {
-					isValid = false;
-				} else {
-					indexArray--;
-					isValid = isValidPair(arr[indexArray], cur);
-				}
+				isValid = indexArray != 0 ? isValidPair(arr[--indexArray], cur) : false;
 			}
 		}
 		return isValid && indexArray == 0;
